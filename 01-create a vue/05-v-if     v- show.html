@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- time 2023/11/24 bilibili P11-->
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+         <div id = "app">
+            <!-- true 显示  false 隐藏 
+                v-show 底层原理：切换  css 的 display ：none 来控制显示隐藏
+                              ：适用于频繁切换显示隐藏的场景
+                v-if   低层原理：根据 判断条件 控制元素的 创建 和 移除 （条件渲染）
+                              ：要么显示，要么隐藏，不频繁切换的场景
+
+                v-else  不能单独使用
+                v-else-if = "表达式"
+            -->
+            <div v-show = "flag" class = "box">我是 v-show 控制的盒子</div>
+            <div v-if = "flag" class = "box">我是 v-if 控制的盒子</div>
+         </div>
+
+         <div id = "test">
+            <p v-if = "gender === 1">性别： 男</p>
+            <p v-else>性别： 女</p>
+            <hr>
+            <p v-if="score >= 90">成绩评定 A：奖励电脑一台</p>
+            <p v-else-if="score >= 70">成绩评定 B：奖励周末郊游</p>
+            <p v-else-if="score >= 60">成绩评定 C：奖励零食礼包</p>
+            <p v-else>成绩评定 D：惩罚一周不能玩手机</p>
+         </div>
+         <!-- 引入开发版本的包 -->
+         <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+         <script>
+            const app = new Vue({
+                el:'#app',
+                data:{
+                    flag : true
+                    }
+                })
+            const test = new Vue({
+                el:'#test',
+                data:{
+                    gender: 1,
+                    score:80
+                }
+            })
+         </script>
+    </body>
+</html>

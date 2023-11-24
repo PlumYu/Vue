@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    <!-- time 2023/11/23 bilibili P5-->
+    <!-- time 2023/11/24 bilibili P5-->
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE-edge">
@@ -9,25 +9,7 @@
     </head>
     <body>
          <div id = "app">
-            <!--  
-                {{}}  插值表达式 
-                {{}}  里面可以发放表达式  {{age >= 18 ? '成年' : '未成年'}}
-                {{}}  里面可以发放表达式  {{ obj.name }}
-                数据必须存在 ( data ) 
-                不能在标签属性中使用 {{}}   /-> <p>{{ if }}</p>   <p title = “{{Username}}”></p>
-            -->
-
-            <!-- 注意点
-            1.使用的属性要存在
-            2.支持语句， 不支持 js 关键字
-            3.不能在标签里使用 {{}}
-            -->
-            <p> myname is {{ nickname }} </p>
-            <br>
-            <p> my name is {{nickname.toUpperCase()  + ' Acepeted'}}</p>
-            <p>{{ age >= 18 ? '刚满 18 岁':'无敌青春美少女'}}</p>
-            <p> {{friend.name + '   hoby is   ' +friend.desc}}</p>
-            <p title="abc">Hi im table </p>
+            {{nickname}}
          </div>
          <!-- 引入开发版本的包 -->
          <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
@@ -47,6 +29,9 @@
                     }
                 }
             })
+            // data 中的数据，是会被添加到实例上
+            // 1.访问数据 实例.属性名
+            // 2.修改数据 实例.属性名 = 新值  在 web 内 Console  -> 数据改变视图自动更新
          </script>
     </body>
 </html>
