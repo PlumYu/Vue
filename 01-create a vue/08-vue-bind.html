@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- time 2023/11/24 bilibili P11-->
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+         <!-- 动态渲染 src -->
+         <div id = "muilp">
+            <button @click="idx--" v-show="idx > 0" >上一页</button>
+            <div>
+                <img :src="list[idx]" alt="">
+            </div>
+            <button @click="idx++" v-show="idx < 2">下一页</button>
+         </div>
+         <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+         <script>
+            const app = new Vue({
+                el:'#muilp',
+                data:{
+                    idx:0,
+                    list:[
+                        './imgs/1.jpg',
+                        './imgs/2.jpg',
+                        './imgs/3.jpg',
+                    ]}
+                })
+         </script>
+    </body>
+</html>
