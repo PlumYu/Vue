@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- time 2023/11/24 bilibili P11-->
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <!-- 内联语句， 适用于简单的逻辑处理 -->
+         <div id = "app">
+            <!-- 点击  v-on： 可替换成 @ -->
+            <button v-on:click="count--">-</button>
+            <span>{{count}}</span>
+            <Button v-on:click="count++">+</Button>
+            <br>
+            <!-- 滑动 -->
+            <button v-on:mouseenter="count--">-</button>
+            <span>{{count}}</span>
+            <Button v-on:mouseenter="count++">+</Button>
+            <br>
+            <!-- @ -->
+            <button @click="count--">-</button>
+            <span>{{count}}</span>
+            <Button @click="count++">+</Button>
+         </div>
+         <hr>
+         <!-- methods 方法 -->
+         <div id = "test">
+            <button @click="fn"> 切换显示隐藏 </button>
+            <h1 v-show = "isShow">WTF?</h1>
+         </div>
+         <hr>
+         <!-- vue on 传递参数 -->
+         <div id = "t3">
+            <button @click="assume(5)">
+                coco  5 R
+            </button>
+            <button @click="assume(10)">
+                coffee 10 R
+            </button>
+            <span>res: {{res}}</span>
+            
+         </div>
+         <!-- 引入开发版本的包 -->
+         <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+         <script>
+            const app = new Vue({
+                el:'#app',
+                data:{
+                    count : 100
+                    },
+                })
+         </script>
+         <script>
+            const test = new Vue({
+                el:'#test',
+                data:{
+                    count : 100,
+                    isShow:true
+                },
+                methods:{
+                    // 让提供的所有methods中的函数，this 都指向当前实例
+                    fn(){
+                        test.isShow = !test.isShow
+                        // this.isShow = !this.isShow
+                    }
+                }
+            })
+         </script>
+         <script>
+            const t3 = new Vue({
+                el:'#t3',
+                data:{
+                    res:100
+                },
+                methods:{
+                    assume(a){
+                        this.res = this.res - a
+                    }
+                }
+            })
+         </script>
+    </body>
+</html>
