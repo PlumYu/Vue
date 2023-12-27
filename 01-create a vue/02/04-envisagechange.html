@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- p23 -->
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            .active{
+                background-color: aquamarine;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 京东秒杀 tab 高亮-->
+        <div id = "app">
+            <ul>
+                <li v-for = "(item, index) in list ":key="item.id" @click="activeIndex = index">
+                <a :class="{ active: index === activeIndex }" href="#">{{ item.name }}</a>
+            </ul>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+         <script>
+            const app = new Vue({
+                el : '#app',
+                data:{
+                    activeIndex: 0,
+                    list:[
+                        {id: 1, name: '京东特价'},
+                        {id: 2, name: '每日特价'},
+                        {id: 3, name: '品类秒杀'}
+                    ]    
+                }
+            })
+            
+         </script>
+    </body>
+</html>
