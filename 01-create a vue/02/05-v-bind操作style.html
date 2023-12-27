@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- p23 -->
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            .box{
+                width: 200px;
+                height: 200px;
+                background-color: rgb(34, 80, 65);
+            }
+        </style>
+    </head>
+    <body>
+        <!-- v-bind 对样式控制的增强 - 操作 style-->
+        <!-- 语法 :style = "样式对象"  ex ↓ -->
+        <!-- <div class = "box" :style="{ css属性名1 : css属性值, css属性名2 : css属性值}"></div> -->
+        <!-- 不支持带 - 的属性名，如有可加 '' 或写成驼峰命名法也行 -->
+        <div id = "app">
+            <div class = "box" :style="{width:'900px', height:'600px'}"></div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+         <script>
+            const app = new Vue({
+                el : '#app',
+                data:{
+  
+                }
+            })
+            
+         </script>
+    </body>
+</html>

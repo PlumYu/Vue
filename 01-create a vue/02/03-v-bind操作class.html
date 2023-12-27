@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- p23 -->
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            .box{
+                width: 200px;
+                height: 200px;
+                border: 3px solid #000;
+                font-size: 30px;
+                margin-top: 10px;
+            }
+            .pink{
+                background-color: aquamarine;
+            }
+            .big{
+                width: 300px;
+                height: 300px;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- :class=""  , "" 里面可以传数组、对象-->
+        <div id = "app">
+            <!-- <div class = "box" :class="{ pink: false, big:true }"> 河马程序员 </div> -->
+            <!-- 适用一个类名来回切换 -->
+            <!-- <div class = "box" :class="['pink', 'big']"> 河马程序员 </div> -->
+            <!-- 适合 批量添加或删除类 -->
+            <div class = "box"> 河马程序员 </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+         <script>
+            const app = new Vue({
+                el : '#app',
+                data:{
+                    
+                }
+            })
+            
+         </script>
+    </body>
+</html>
