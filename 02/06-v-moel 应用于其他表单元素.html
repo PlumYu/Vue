@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- p23 -->
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>码农学习网</title>
+    </head>
+    <body>
+        <!-- v-model 应用于其他表单元素 -->
+        <!-- 输入框 input:text -->
+        <!-- 文本域 textarea -->
+        <!-- 复选框 input:checkbox -->
+        <!-- 单选框 inpput:radio -->
+        <!-- 下拉菜单 select -->
+        <!-- v-model 会根据控件类型自动选取正确的方法来更新元素 -->
+        <div id = "app">
+            <h3> Study net of computer </h3>
+            name：
+                <input type = "text" v-model="username">
+                <br><br>
+            IsSingle:
+                <input type = "checkbox" v-model = "isSingle">
+                <br><br>
+            <!-- 
+                前置理解：
+                1. name : 给单选框加上 name 属性 可以分组 -》 同一组互相会互斥
+                2. value : 给单选框加上 value 属性， 用于提交给后台的数据
+                结合 Vue 使用 -> v-model
+             -->
+            gender：
+                <input v-model="gender"    type="radio"name = "gender" value = "1"> man
+                <input v-model="gender"    type="radio"name = "gender" value = "2"> women
+                <br><br>
+            <!-- 
+                前置理解：
+                1.option  需要设置 value 值, 提交给后台
+                2.select 的 value 值，关联了选中的 option 的 value 值
+                结合 Vue 使用 -> v-model
+             -->
+            city:
+                <select v-model = "cityID">
+                    <option value="101"> BeiJing </option>
+                    <option value="102"> ShangHai </option>
+                    <option value="103"> NanJing </option>
+                    <option value="104"> GuangZhou </option>
+                </select>
+                <br><br>
+
+
+            SelfDescribe:
+                <textarea v-model="desc"></textarea>
+
+                <br>
+            <button>Register</button>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+         <script>
+            const app = new Vue({
+                el : '#app',
+                data:{
+                    username: '',
+                    isSingle: false,
+                    gender:1,
+                    cityID:'101',
+                    desc: " "
+                }
+            })
+            
+         </script>
+    </body>
+</html>
