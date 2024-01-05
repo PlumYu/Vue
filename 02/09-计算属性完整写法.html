@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- p23 -->
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Test</title>
+    </head>
+    <body>
+        <div @click = "changeName"  id = "app">
+            FirstName:  <input type="text" v-model = "FirstName"> + 
+            LastName: <input type="text" v-model = "LastName"> =
+            <span> {{ fullName }} </span><br><br>
+            <button> Change Name </button>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+         <script>
+            const app = new Vue({
+                el : '#app',
+                data:{
+                    FirstName : 'liu',
+                    LastName : 'bei',
+                },
+                methods:{
+                    changeName(){
+                        this.fullName = 'zhaozilong'
+                    }
+                },
+                computed:{
+                    // 完整写法 -> 获取 + 设置
+                    // 当 fullname 计算属性, 被获取求值时，执行 get （有缓存,优先读缓存）
+                    fullName:{
+                        get(){
+                            return this.FirstName + this.LastName
+                        },
+                        // 当 fullName 计算属性，被修改赋值时，执行set
+                        // 修改的值，传递给 set 方法的形参
+                        set(value){
+                            this.FirstName = value.slice(0, 1)
+                            this.LastName = value.slice(1)
+                        }
+                    }
+                }
+            })
+            
+         </script>
+    </body>
+</html> 
